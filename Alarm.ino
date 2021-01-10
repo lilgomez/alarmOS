@@ -34,12 +34,6 @@ void setup() {
   delay(1000); //Apito longo para indicar que ligou
   digitalWrite(5, LOW);
 
-  //Pinos sensores
-  pinMode(7, INPUT);
-  pinMode(8, INPUT);
-  pinMode(9, INPUT);
-
-
   //20 segudos para o alarme accionar
   for (count = 0; count < 10 ; count++) {
     digitalWrite(5, HIGH);
@@ -52,6 +46,7 @@ void setup() {
 void loop() {
   
   //Sensor1
+  //Foram usados os pinos analógicos, pois pequenos picos de corrente originavam falsos disparos.
   sensor1 = analogRead(A0);
   if (sensor1 >= 500) {
     //Aviso com buzzer durante 20 segundos antes de disparar alarme
